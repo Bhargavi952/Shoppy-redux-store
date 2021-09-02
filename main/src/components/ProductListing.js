@@ -4,6 +4,8 @@ import ProductComponent from "./ProductComponent";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchProducts, setProducts } from "../redux/actions/productActions";
+import styles from "./style.module.css";
+
 
 const ProductListing = () => {
   const products = useSelector((state) => state.allProducts.products);
@@ -31,14 +33,19 @@ const ProductListing = () => {
   }, []);
   // console.log("List:",products);
   return (
-    <div style={{ paddingTop: "80px" }}>
-      <input
+    <div>
+     <div className={styles.searchbar}>
+    <div>
+    <input
+      className={styles.input}
         type="text"
         placeholder="Search...."
         onChange={(e) => setText(e.target.value)}
       />
 
-      <select
+    </div>
+     <div className={styles.filters}>
+     <select
         onChange={(e) => {
           setSort(e.target.value);
         }}
@@ -57,7 +64,9 @@ const ProductListing = () => {
         <option value="electronics">Electronics</option>
       </select>
 
-      <button onClick={clearFilter}>Clear Filter</button>
+      <button className={styles.btn} onClick={clearFilter}>Clear Filter</button>
+     </div>
+     </div>
 
       <div
         style={{

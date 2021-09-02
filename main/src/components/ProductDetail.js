@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import "./spin.css";
+
 import {
   removeSelectedProduct,
   fetchSingledata,
@@ -39,16 +41,27 @@ const ProductDetail = () => {
     };
   }, [productId]);
   return (
-    <div className="ui grid container">
-      <div style={{ paddingTop: "30px" }}>
+    <div>
+      <div>
         {Object.keys(product).length === 0 ? (
-          <div>...Loading</div>
+          <div class="center">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+        </div>
         ) : (
-          <div>
+         
             <div className="ui two column stackable center aligned grid">
               <div className="middle aligned row">
                 <div className="column lp">
-                  <img src={image} />
+                  <img width="350px" height="350px" style={{borderRadius:"50px"}} src={image} />
                 </div>
                 <div className="column rp">
                   <h1>{title}</h1>
@@ -62,7 +75,6 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
-          </div>
         )}
       </div>
     </div>

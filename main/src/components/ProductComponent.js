@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "./style.module.css";
+import "./spin.css";
+
 
 const ProductComponent = ({ text, sort, category }) => {
   const products = useSelector((state) => state.allProducts.products);
@@ -22,7 +24,24 @@ const ProductComponent = ({ text, sort, category }) => {
     return item.category.includes(category);
   };
   return (
-    <div className={styles.container}>
+    <div>
+      {
+        products.length===0
+      ?(
+         <div class="center">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+        </div>
+      ):(
+        <div className={styles.container}>
       {products
         ?.filter(searchFilter)
         .filter(filterByCategory)
@@ -45,6 +64,8 @@ const ProductComponent = ({ text, sort, category }) => {
             </>
           );
         })}
+    </div>
+      )}
     </div>
   );
 };
