@@ -45,36 +45,40 @@ const ProductDetail = () => {
       <div>
         {Object.keys(product).length === 0 ? (
           <div class="center">
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-        </div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+          </div>
         ) : (
-         
-            <div className="ui two column stackable center aligned grid">
-              <div className="middle aligned row">
-                <div className="column lp">
-                  <img width="350px" height="350px" style={{borderRadius:"50px"}} src={image} />
-                </div>
-                <div className="column rp">
-                  <h1>{title}</h1>
-                  <h2>
-                    <a className="ui teal tag label">${price}</a>
-                  </h2>
-                  <h3 className="ui brown block header">{category}</h3>
-                  <p>{description}</p>
+          <div className="ui two column stackable center aligned grid">
+            <div className="middle aligned row">
+              <div className="column lp">
+                <img
+                  width="350px"
+                  height="350px"
+                  style={{ borderRadius: "50px" }}
+                  src={image}
+                />
+              </div>
+              <div className="column rp">
+                <h1>{title}</h1>
+                <h2>
+                  <a className="ui teal tag label">${price}</a>
+                </h2>
+                <h3 className="ui brown block header">{category}</h3>
+                <p>{description}</p>
 
-                  <button >Add to Cart</button>
-                </div>
+                <button>Add to Cart</button>
               </div>
             </div>
+          </div>
         )}
       </div>
     </div>

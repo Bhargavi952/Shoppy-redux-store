@@ -1,0 +1,30 @@
+.navbar_cont {
+    margin-bottom: 20px;
+    background: black;
+    color: #fff;
+    height: 90px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navlogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 16px 30px;
+}
+
+.btn_div {
+    display: inline-flex;
+    justify-content: space-around;
+    width: 20%;
+}
+
+@media screen and (max-width: 600px) {
+    .btn_div {
+        width: 60%;
+    }
+}
