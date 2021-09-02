@@ -1,9 +1,20 @@
-import { ActionTypes } from "../constants/action-types";
+import fakeStoreapi from "../../apis/fakeStoreapi"
+import { ActionTypes } from "../constants/actionTypes";
+const fetchProducts = () => async (dispatch) => {
+  const response = await fakeStoreapi.get(`/products`);
+  console.log(response)
+  dispatch(
+    // type: ActionTypes.SET_PRODUCTS,
+    // payload: response.data,
+    setProducts(response.data)
+  );
+};
 
 const setProducts = (products) => {
   return {
     type: ActionTypes.SET_PRODUCTS,
     payload: products,
+    
   };
 };
 
@@ -20,4 +31,10 @@ const removeSelectedProduct = () => {
   };
 };
 
-export {setProducts ,selectedProduct ,removeSelectedProduct}
+const fetchSingledata = (id) => async (dispatch) => {
+  const response = await fakeStoreapi.get(`/products/${id}`);
+  console.log(response)
+  console.log(id)
+  dispatch(selectedProduct(response.data));
+};
+export { setProducts, fetchProducts, selectedProduct, removeSelectedProduct ,fetchSingledata };
